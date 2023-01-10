@@ -4,15 +4,19 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: "Rubik", sans-serif;
+  font-family: "Orbitron", sans-serif;
   line-height: 1;
   font-weight: 400;
-  width: 100wh;
+  /* width: 100wh; */
   height: 100vh;
 }
 
@@ -22,26 +26,75 @@ body {
   align-items: center;
   /* justify-content: center; */
   /* margin: 0 auto; */
-  border: 3px solid black;
+  /* border: 3px solid black; */
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.1);
+  background-color: #020202;
   height: 80%;
-  width: 30%;
-  border-radius: 10px;
+  width: 25%;
+  border-radius: 1rem;
 }
 
 .screen {
-  height: 30%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 50%;
   width: 95%;
-  /* border-radius: 10px; */
-  border: 3px solid black;
-  margin-top: 20px;
+  /* border: 1px solid white; */
+  margin-top: 2rem;
+  color: white;
+}
+
+.screen-text {
+  font-size: 8rem;
+  margin-right: 3.5rem;
+  margin-bottom: 1rem;
 }
 
 .input-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  height: 70%;
+  align-items: center;
+  justify-items: center;
+  height: 60%;
   width: 85%;
-  gap: 10px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  grid-row-gap: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.btn {
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 2.5rem;
+  height: 7.5rem;
+  width: 7.5rem;
+}
+
+.dark-grey {
+  background-color: #3a3a3a;
+  color: rgb(255, 255, 255);
+}
+
+.light-grey {
+  background-color: #a9a9a9;
+}
+
+.orange {
+  background-color: #fc9722;
+  color: rgb(255, 255, 255);
+}
+
+.yellow {
+  background-color: #f8ab59;
+  color: rgb(255, 255, 255);
+}
+
+.darken:hover {
+  filter: brightness(120%);
 }
