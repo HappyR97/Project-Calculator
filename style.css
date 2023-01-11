@@ -45,10 +45,15 @@ body {
   color: white;
 }
 
-.screen-text {
+.first-number,
+.operator,
+.second-number {
   font-size: 8rem;
-  margin-right: 3.5rem;
   margin-bottom: 1rem;
+}
+
+.second-number {
+  margin-right: 3.5rem;
 }
 
 .input-container {

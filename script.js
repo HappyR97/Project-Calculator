@@ -1,5 +1,10 @@
-let screenText = document.querySelector(".screen-text");
-let btnOne = document.querySelector(".btn--one");
+let firstNumberText = document.querySelector(".first-number");
+let operatorText = document.querySelector(".operator");
+let secondNumberText = document.querySelector(".second-number");
+let btnNumbers = document.querySelectorAll(".btn--number");
+let btnOperators = document.querySelectorAll(".btn--operator");
+
+let firstNumber = NaN;
 
 function add(a, b) {
   return a + b;
@@ -25,13 +30,35 @@ function operate(a, b, operator) {
   if (operator === "%") return remainder(a, b);
 }
 
-function addItem(item) {
-  screenText.textContent += `${item.textContent} `;
+function addContent(span, content) {
+  span.textContent += content.textContent;
 }
 
-btnOne.addEventListener("click", function () {
-  addItem(btnOne);
+btnNumbers.forEach(function (btnNumber) {
+  btnNumber.addEventListener("click", function () {
+    if (operatorText.textContent === "") {
+      addContent(firstNumberText, btnNumber);
+    }
+    if (operatorText.textContent !== "") {
+      addContent(secondNumberText, btnNumber);
+    }
+    // firstNumber = Number(firstNumberText.textContent);
+  });
 });
 
-let firstNumber;
-let secondNumber;
+btnOperators.forEach(function (btnOperator) {
+  btnOperator.addEventListener("click", function () {
+    if (firstNumberText.text !== "") {
+      operatorText.textContent = btnOperator.textContent;
+    }
+  });
+});
+
+// btnOperators.forEach(function (btnOperator) {
+//   let buttonText = btnOperator.textContent;
+//   btnOperator.addEventListener("click", function () {
+//     if (screenText.textContent.indexOf(buttonText) === -1) {
+//       addContent(btnOperator);
+//     }
+//   });
+// });
