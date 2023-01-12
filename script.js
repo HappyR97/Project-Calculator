@@ -36,10 +36,6 @@ function operateElements(arr, operator) {
   return operate(arr[0], arr[1], operator);
 }
 
-// function addContent(span, content) {
-//   span.textContent += content.textContent;
-// }
-
 btnNumbers.forEach(function (btnNumber) {
   btnNumber.addEventListener("click", function () {
     // Change text content
@@ -69,41 +65,3 @@ btnOperators.forEach(function (btnOperator) {
 });
 
 btnOperate.addEventListener("click", function () {});
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// btnNumbers.forEach(function (btnNumber) {
-//   btnNumber.addEventListener("click", function () {
-//     if (totalText.textContent !== "") {
-//       totalText.textContent = "";
-//     }
-//     if (operatorText.textContent === "") {
-//       addContent(firstNumberText, btnNumber);
-//     }
-//     if (operatorText.textContent !== "") {
-//       addContent(secondNumberText, btnNumber);
-//     }
-//   });
-// });
-
-// btnOperators.forEach(function (btnOperator) {
-//   btnOperator.addEventListener("click", function () {
-//     firstNumber = Number(firstNumberText.textContent);
-//     if (firstNumberText.text !== "") {
-//       operatorText.textContent = btnOperator.textContent;
-//     }
-//   });
-// });
-
-// btnOperate.addEventListener("click", function () {
-//   secondNumber = Number(secondNumberText.textContent);
-//   if (operatorText.textContent === "+") {
-//     total = operate(firstNumber, secondNumber, "+");
-//   }
-//   totalText.textContent = total;
-//   operatorText.textContent = "";
-//   firstNumberText.textContent = "";
-//   secondNumberText.textContent = "";
-// });
