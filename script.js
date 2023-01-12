@@ -9,8 +9,14 @@ const bntDecimal = document.querySelector(".btn--decimal");
 let numbers = [];
 let total;
 let operator;
+
+// Switch that keeps track if it should add the numbers pressed directly to display or if it should clean first (False = add directly, True= clear first)
 let textCue = false;
-let restart = false;
+
+// Switch that keeps track if the last clicked button is the Operate button or not
+let activeOperate = false;
+
+// Switch that keeps track if the last clicked button is an Operator or not
 let activeOperator = false;
 
 function add(a, b) {
@@ -49,9 +55,13 @@ function operateElements(arr, operator) {
 btnNumbers.forEach(function (btnNumber) {
   btnNumber.addEventListener("click", function () {
     activeOperator = false;
-    if (restart) screenText.textContent = "";
-    restart = false;
-    // Change text content
+
+    // If the compute button was previously clicked, clears calculator display
+    if (activeOperate) screenText.textContent = "";
+    activeOperate = false;
+    // END
+
+    // Changes text content on the screen. If textCue is false, add numbers pressed to display, if true, clear first then add numbers, then switch to false again.
     if (!textCue) {
       screenText.textContent += btnNumber.textContent;
     } else {
@@ -59,25 +69,28 @@ btnNumbers.forEach(function (btnNumber) {
       screenText.textContent += btnNumber.textContent;
       textCue = false;
     }
+    // END
   });
 });
 
 btnOperators.forEach(function (btnOperator) {
   btnOperator.addEventListener("click", function () {
-    console.log(operator);
-    if (textCue) textCue = false;
-    if (!textCue) textCue = true;
+    // if (textCue) textCue = false;
+    textCue = true;
 
-    if (activeOperator) return;
+    // Makes sure that if button is clicked multiple times, operator changes but does not compute
+    if (activeOperator) {
+      operator = btnOperator.id;
+      return;
+    }
     activeOperator = true;
+    // END //
 
     if (numbers.length < 2) numbers.push(screenText.textContent);
-    console.log(numbers);
     if (numbers.length >= 2 && operator) {
       total = operateElements(numbers, operator);
       screenText.textContent = operateElements(numbers, operator);
       numbers = [total];
-      console.log(numbers);
     }
     operator = btnOperator.id;
   });
@@ -101,7 +114,6 @@ btnDel.addEventListener("click", function () {
 
 btnOperate.addEventListener("click", function () {
   if (numbers.length < 2) numbers.push(screenText.textContent);
-  console.log(numbers);
   if (numbers.length >= 2) {
     total = operateElements(numbers, operator);
     screenText.textContent = operateElements(numbers, operator);
@@ -110,5 +122,5 @@ btnOperate.addEventListener("click", function () {
   total = undefined;
   operator = undefined;
   numbers = [];
-  restart = true;
+  activeOperate = true;
 });
